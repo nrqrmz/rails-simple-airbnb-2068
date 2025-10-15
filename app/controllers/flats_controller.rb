@@ -2,6 +2,8 @@ class FlatsController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   def index
     @flats = Flat.all
+
+    @flats = @flats.where('name LIKE ?', "%#{params[:search][:query]}%") if params[:search][:query]
   end
 
   def show
