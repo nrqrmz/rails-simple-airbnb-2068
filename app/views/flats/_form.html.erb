@@ -1,0 +1,15 @@
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :number_of_guests %>
+  <%= f.input :price_per_night %>
+  <div class="d-flex">
+    <%= f.submit class: 'btn btn-primary', class: 'btn btn-primary me-2' %>
+    <% if params[:action] == 'new' %>
+      <%= link_to 'Cancel', flats_path, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'Cancel', flat_path(@flat), class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+<% end %>
